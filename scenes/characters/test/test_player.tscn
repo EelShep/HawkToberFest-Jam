@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scenes/characters/player/player.gd" id="1_avieh"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_0vly6"]
-size = Vector3(0.5, 2, 1)
+size = Vector3(1, 2, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rdpcb"]
 resource_name = "character"
@@ -1808,15 +1808,18 @@ _data = {
 "walking": SubResource("Animation_5diup")
 }
 
-[node name="test_player" type="CharacterBody3D"]
+[node name="test_player" type="CharacterBody3D" node_paths=PackedStringArray("model", "animator")]
 script = ExtResource("1_avieh")
+ROT_OFFSET = 3.142
+model = NodePath("Character3D")
+animator = NodePath("Character3D/AnimationPlayer")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("BoxShape3D_0vly6")
 
 [node name="Character3D" type="Node3D" parent="."]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+transform = Transform3D(-0.5, 0, -4.37114e-08, 0, 0.5, 0, 4.37114e-08, 0, -0.5, 0, 0, 0)
 
 [node name="Armature" type="Node3D" parent="Character3D"]
 transform = Transform3D(-0.73134, 0.0503198, 0.680154, -0.00354736, 0.99698, -0.0775738, -0.682003, -0.0591456, -0.728953, -0.11131, -0.128574, 0.111958)
