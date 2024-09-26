@@ -1,15 +1,15 @@
 extends CharacterBody3D
 class_name Player
 
-@export var ROT_OFFSET    : float = 0.0
+@export var ROT_OFFSET     : float = 0.0
 
-@export var SPEED         : float = 3.0
-@export var TURN_SPEED    : float = 2.0
-@export var JUMP_VELOCITY : float = 4.5
+@export var SPEED          : float = 1.75
+@export var TURN_SPEED     : float = 2.0
+@export var JUMP_VELOCITY  : float = 4.5
 
-@export var model    : Node
-@export var animator : AnimationPlayer
-
+@export var model          : Node
+@export var animator       : AnimationPlayer
+@export var room_activator : RoomActivator
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
