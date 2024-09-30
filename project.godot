@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="HawkToberFest-Jam_FCTC"
-run/main_scene="res://scenes/levels/test.tscn"
+run/main_scene="res://scenes/ui/main_menu.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 config/icon="res://icon.svg"
 
@@ -20,10 +20,25 @@ config/icon="res://icon.svg"
 CyclopsAutoload="*res://addons/cyclops_level_builder/cyclops_global_scene.tscn"
 CameraManager="*res://scripts/camera_manager.gd"
 GameState="*res://scripts/game_state.gd"
+AudioController="*res://scripts/global/audio/audio_controller.tscn"
+Events="*res://scripts/global/events.gd"
 
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/cyclops_level_builder/plugin.cfg")
+
+[file_customization]
+
+folder_colors={
+"res://addons/": "gray",
+"res://resources/": "green",
+"res://scenes/": "orange",
+"res://scripts/": "red"
+}
+
+[gui]
+
+theme/custom="res://resources/themes/default_theme.tres"
 
 [input]
 
@@ -50,6 +65,16 @@ right={
 use={
 "deadzone": 0.5,
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":69,"key_label":0,"unicode":101,"location":0,"echo":false,"script":null)
+]
+}
+start={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194305,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+]
+}
+select={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":96,"key_label":0,"unicode":96,"location":0,"echo":false,"script":null)
 ]
 }
 

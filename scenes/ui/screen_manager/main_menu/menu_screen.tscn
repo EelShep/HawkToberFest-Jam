@@ -1,0 +1,74 @@
+[gd_scene load_steps=3 format=3 uid="uid://dpaef8m7u0av1"]
+
+[ext_resource type="Script" path="res://scripts/screen_manager/screen.gd" id="1_yaabb"]
+[ext_resource type="Script" path="res://scripts/screen_manager/screen_button.gd" id="2_5l42h"]
+
+[node name="MenuScreen" type="Control" node_paths=PackedStringArray("focus_button")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_yaabb")
+focus_button = NodePath("MarginContainer/VBoxContainer/Bottom/ButtonsContainer/MainMenuStart")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Top" type="Control" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer/Top"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -24.5
+offset_bottom = 24.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 78
+bbcode_enabled = true
+text = "[center][shake rate=9.0 level=9 connected=1][color=orangered]HawkToberFest-Jam[/color][/shake] "
+fit_content = true
+
+[node name="Bottom" type="Control" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ButtonsContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/Bottom"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MainMenuStart" type="Button" parent="MarginContainer/VBoxContainer/Bottom/ButtonsContainer"]
+layout_mode = 2
+text = "Start"
+script = ExtResource("2_5l42h")
+group = "main_menu_buttons"
+
+[node name="MainMenuQuit" type="Button" parent="MarginContainer/VBoxContainer/Bottom/ButtonsContainer"]
+layout_mode = 2
+text = "Quit"
+script = ExtResource("2_5l42h")
+group = "main_menu_buttons"

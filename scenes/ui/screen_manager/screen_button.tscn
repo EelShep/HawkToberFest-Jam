@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://mkduiliupwct"]
+
+[ext_resource type="Script" path="res://scripts/screen_manager/screen_button.gd" id="1_xrm0n"]
+
+[node name="ScreenButton" type="Button"]
+offset_right = 8.0
+offset_bottom = 8.0
+script = ExtResource("1_xrm0n")

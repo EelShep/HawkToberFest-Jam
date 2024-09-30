@@ -1,0 +1,40 @@
+[gd_scene load_steps=4 format=3 uid="uid://dteh0l48rf522"]
+
+[ext_resource type="Script" path="res://main_menu.gd" id="1_bspp5"]
+[ext_resource type="Script" path="res://scenes/ui/screen_manager/main_menu/main_menu_screens.gd" id="2_2yccw"]
+[ext_resource type="PackedScene" uid="uid://dpaef8m7u0av1" path="res://scenes/ui/screen_manager/main_menu/menu_screen.tscn" id="3_mdul0"]
+
+[node name="MainMenu" type="CanvasLayer" node_paths=PackedStringArray("main_menu_screens")]
+script = ExtResource("1_bspp5")
+main_menu_screens = NodePath("Control/MainMenuScreens")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BackgroundRect" type="ColorRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.184889, 0.157469, 0.200554, 1)
+
+[node name="MainMenuScreens" type="Control" parent="Control" node_paths=PackedStringArray("screens")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_2yccw")
+screens = [NodePath("MenuScreen")]
+button_groups = Array[String](["main_menu_buttons"])
+
+[node name="MenuScreen" parent="Control/MainMenuScreens" instance=ExtResource("3_mdul0")]
+layout_mode = 1
