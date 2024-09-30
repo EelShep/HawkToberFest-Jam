@@ -17,7 +17,7 @@ func _ready() -> void:
 
 func show_pause_screen() -> void:
 	on_enter_menu()
-	#TODO AudioController.play_ui_sfx(AudioConst.UI_SFX_OPEN)
+	AudioController.play_ui_sfx(AudioConst.UI_SFX_OPEN)
 	var tween: Tween = appear()
 	await tween.finished
 	pause_screens.on_enter()
@@ -28,15 +28,17 @@ func on_enter_menu() -> void:
 	Events.pause_toggled.emit(true)
 	get_tree().paused = true
 	var low_pass_idx: int = 0
-	AudioServer.set_bus_effect_enabled(AudioConst.BUS_MUSIC_IDX, low_pass_idx, true)
+	AudioServer.set_bus_effect_enabled(AudioConst.BUS_MUSIC_IDX, 
+		AudioConst.BUS_FX_LOWPASS, 
+		true)
 
 func on_exit_menu() -> void:
 	set_process_unhandled_input(true)
 	Events.pause_toggled.emit(false)
 	get_tree().paused = false
-	var low_pass_idx: int = 0
-	AudioServer.set_bus_effect_enabled(AudioConst.BUS_MUSIC_IDX, low_pass_idx, false)
-	
+	AudioServer.set_bus_effect_enabled(AudioConst.BUS_MUSIC_IDX, 
+		AudioConst.BUS_FX_LOWPASS, 
+		false)
 
 
 func _on_screens_exited() -> void: #Resume Game

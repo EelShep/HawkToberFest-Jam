@@ -22,7 +22,7 @@ func _ready() -> void:
 	Events.main_menu_ready.connect(handle_main_menu_ready)
 	Events.game_ready.connect(handle_game_ready)
 	
-	AudioServer.set_bus_volume_db(AudioConst.BUS_MASTER_IDX, -15.0)
+	AudioServer.set_bus_volume_db(AudioConst.BUS_SFX_IDX, -15.0)
 
 	
 func play_sfx(sfx_idx: int, volume_db: float = 0.0, pitch_scale: float = 1.0) -> void:
@@ -42,11 +42,11 @@ func toggle_bus_effect(bus_idx: int, effect_idx: int, value: bool) -> void:
 
 
 func handle_main_menu_ready() -> void:
-	#TODO music_controller.play_music(AudioConst.MUSIC_TITLE)
+	music_controller.play_music(AudioConst.MUSIC_TITLE)
 	reset_music_effects()
 
 func handle_game_ready() -> void:
-	#TODO music_controller.play_music(AudioConst.MUSIC_TITLE)
+	music_controller.play_music(AudioConst.MUSIC_TRACK_0)
 	reset_music_effects()
 
 func reset_music_effects() -> void:

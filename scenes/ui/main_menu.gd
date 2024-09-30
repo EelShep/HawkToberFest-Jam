@@ -19,6 +19,7 @@ func _ready() -> void:
 
 func _on_play_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/levels/test.tscn")
+	Events.game_ready.emit() #ALERT REMOVE
 
 
 func _on_reset_pressed() -> void: pass
