@@ -15,12 +15,16 @@ run/main_scene="res://scenes/ui/main_menu.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[audio]
+
+buses/default_bus_layout="res://resources/audio/default_bus_layout.tres"
+
 [autoload]
 
 CyclopsAutoload="*res://addons/cyclops_level_builder/cyclops_global_scene.tscn"
 CameraManager="*res://scripts/camera_manager.gd"
 GameState="*res://scripts/game_state.gd"
-AudioController="*res://scripts/global/audio/audio_controller.tscn"
+AudioController="*res://scripts/global/audio_controller/audio_controller.tscn"
 Events="*res://scripts/global/events.gd"
 
 [editor_plugins]

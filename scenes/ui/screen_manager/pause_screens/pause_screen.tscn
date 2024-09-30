@@ -1,17 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://dpaef8m7u0av1"]
+[gd_scene load_steps=3 format=3 uid="uid://bo088mqd1h5l1"]
 
-[ext_resource type="Script" path="res://scripts/screen_manager/screen.gd" id="1_yaabb"]
-[ext_resource type="Script" path="res://scripts/screen_manager/screen_button.gd" id="2_5l42h"]
+[ext_resource type="Script" path="res://scripts/screen_manager/screen.gd" id="1_7tnkl"]
+[ext_resource type="Script" path="res://scripts/screen_manager/screen_button.gd" id="2_lu4qc"]
 
-[node name="MenuScreen" type="Control" node_paths=PackedStringArray("focus_button")]
+[node name="PauseScreen" type="Control" node_paths=PackedStringArray("focus_button")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_yaabb")
-focus_button = NodePath("MarginContainer/VBoxContainer/Bottom/ButtonsContainer/MainMenuStart")
+script = ExtResource("1_7tnkl")
+focus_button = NodePath("MarginContainer/VBoxContainer/Bottom/ButtonsContainer/PauseResume")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -40,7 +40,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/normal_font_size = 78
 bbcode_enabled = true
-text = "[center][shake rate=9.0 level=9 connected=1][color=orangered]HawkToberFest-Jam[/color][/shake] "
+text = "[center][shake rate=9.0 level=9 connected=1][color=orangered]Paused[/color][/shake] "
 fit_content = true
 
 [node name="Bottom" type="Control" parent="MarginContainer/VBoxContainer"]
@@ -61,16 +61,16 @@ offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="MainMenuStart" type="Button" parent="MarginContainer/VBoxContainer/Bottom/ButtonsContainer"]
+[node name="PauseResume" type="Button" parent="MarginContainer/VBoxContainer/Bottom/ButtonsContainer"]
 layout_mode = 2
 text = "Start"
-script = ExtResource("2_5l42h")
-group = "main_menu_buttons"
+script = ExtResource("2_lu4qc")
+group = "pause_buttons"
 button_type = 1
 
-[node name="MainMenuQuit" type="Button" parent="MarginContainer/VBoxContainer/Bottom/ButtonsContainer"]
+[node name="PauseQuit" type="Button" parent="MarginContainer/VBoxContainer/Bottom/ButtonsContainer"]
 layout_mode = 2
 text = "Quit"
-script = ExtResource("2_5l42h")
-group = "main_menu_buttons"
+script = ExtResource("2_lu4qc")
+group = "pause_buttons"
 button_type = 4

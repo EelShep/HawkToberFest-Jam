@@ -1,7 +1,10 @@
-[gd_scene load_steps=474 format=3 uid="uid://bi26312uigyr2"]
+[gd_scene load_steps=477 format=3 uid="uid://bi26312uigyr2"]
 
+[ext_resource type="Script" path="res://scenes/ui/pause_screen_ui.gd" id="1_34ot4"]
 [ext_resource type="Script" path="res://scripts/tracking_camera.gd" id="1_hahny"]
 [ext_resource type="Script" path="res://scripts/room_area.gd" id="2_4suea"]
+[ext_resource type="Script" path="res://scenes/ui/screen_manager/pause_screens/pause_screens.gd" id="2_uuedw"]
+[ext_resource type="PackedScene" uid="uid://bo088mqd1h5l1" path="res://scenes/ui/screen_manager/pause_screens/pause_screen.tscn" id="3_jicbc"]
 [ext_resource type="PackedScene" uid="uid://duxen1333p05l" path="res://scenes/interactables/door/door.tscn" id="4_v0men"]
 [ext_resource type="PackedScene" uid="uid://cyoqcyc5dy8o" path="res://scenes/characters/player/test_player.tscn" id="7_41qov"]
 [ext_resource type="Script" path="res://addons/cyclops_level_builder/nodes/cyclops_block.gd" id="8_2i4b4"]
@@ -4611,6 +4614,35 @@ face_vertex_data = {
 }
 
 [node name="test" type="Node3D"]
+
+[node name="PauseScreenUI" type="CanvasLayer" parent="." node_paths=PackedStringArray("background", "pause_screens")]
+process_mode = 3
+layer = 128
+script = ExtResource("1_34ot4")
+background = NodePath("Background")
+pause_screens = NodePath("PauseScreens")
+
+[node name="Background" type="ColorRect" parent="PauseScreenUI"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.184314, 0.156863, 0.2, 0.803922)
+
+[node name="PauseScreens" type="Control" parent="PauseScreenUI" node_paths=PackedStringArray("screens")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_uuedw")
+screens = [NodePath("PauseScreen")]
+button_groups = Array[String](["pause_buttons"])
+
+[node name="PauseScreen" parent="PauseScreenUI/PauseScreens" instance=ExtResource("3_jicbc")]
+layout_mode = 1
 
 [node name="geometry" type="Node3D" parent="."]
 visible = false

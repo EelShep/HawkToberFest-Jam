@@ -21,15 +21,11 @@ func _ready() -> void:
 	pressed.connect(_on_pressed)
 	focus_entered.connect(_on_focus_entered)
 	focus_exited.connect(_on_focus_exited)
-	var low_pass_idx: int = 1
-	var lofi_idx: int = 2
-	AudioServer.set_bus_effect_enabled(AudioConst.BUS_MUSIC_IDX, low_pass_idx, false)
-	AudioServer.set_bus_effect_enabled(AudioConst.BUS_MUSIC_IDX, lofi_idx, false)
 
 
 func _on_focus_entered() -> void:
 	if not is_clicked: 
-		#TODO AudioController.play_ui_sfx(AudioConst.UI_SFX_HOVER, 7)
+		AudioController.play_ui_sfx(AudioConst.UI_SFX_HOVER, 7)
 		is_clicked = false
 	else: is_clicked = false
 
@@ -40,4 +36,4 @@ func _on_focus_exited() -> void:
 	
 func _on_pressed() -> void:
 	clicked.emit(self)
-	#TODO AudioController.play_ui_sfx(button_type)
+	AudioController.play_ui_sfx(button_type)
