@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 CyclopsAutoload="*res://addons/cyclops_level_builder/cyclops_global_scene.tscn"
 CameraManager="*res://scripts/camera_manager.gd"
+GameState="*res://scripts/game_state.gd"
 
 [editor_plugins]
 
@@ -54,6 +55,8 @@ use={
 
 [layer_names]
 
+3d_physics/layer_1="World"
+3d_physics/layer_2="Player"
 3d_physics/layer_32="Rooms"
 
 [rendering]

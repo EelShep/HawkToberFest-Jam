@@ -20,11 +20,11 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 	
-	var turn_dir : float = Input.get_action_strength("ui_left") - Input.get_action_strength("ui_right")
+	var turn_dir : float = Input.get_action_strength("left") - Input.get_action_strength("right")
 	model.rotation.y += turn_dir * TURN_SPEED * delta
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
-	var input_dir := Input.get_vector("left", "right", "forward", "backward")
+	var input_dir := Vector2(0,Input.get_action_strength("backward") - Input.get_action_strength("forward"))#Input.get_vector("left", "right", "forward", "backward")
 	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y).rotated(Vector3.UP,model.rotation.y + ROT_OFFSET)).normalized()
 	if direction:
 		if !animator.is_playing() or animator.current_animation != "walking":

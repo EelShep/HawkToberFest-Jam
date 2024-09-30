@@ -11,4 +11,8 @@ func _ready() -> void:
 
 func _input(event: InputEvent) -> void:
 	if !event.is_action_pressed("use"): return
+	force_raycast_update()
 	if !is_colliding(): return
+	var collider = get_collider()
+	if !collider.has_method("use"): return
+	collider.use()
