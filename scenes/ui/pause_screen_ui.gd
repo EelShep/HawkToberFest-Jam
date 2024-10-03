@@ -12,6 +12,7 @@ func _ready() -> void:
 	set_process_unhandled_input(true)
 	pause_screens.exit_screens.connect(_on_screens_exited.unbind(2))
 	background.modulate.a = 0.0
+	show()
 	background.hide()
 
 

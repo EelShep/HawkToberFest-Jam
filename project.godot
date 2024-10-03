@@ -26,6 +26,7 @@ CameraManager="*res://scripts/camera_manager.gd"
 GameState="*res://scripts/game_state.gd"
 AudioController="*res://scripts/global/audio_controller/audio_controller.tscn"
 Events="*res://scripts/global/events.gd"
+SaveData="*res://scripts/global/save_data.gd"
 
 [editor_plugins]
 

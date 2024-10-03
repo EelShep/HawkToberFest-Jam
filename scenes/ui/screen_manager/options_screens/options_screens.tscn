@@ -1,0 +1,247 @@
+[gd_scene load_steps=6 format=3 uid="uid://d5ejrr72vn8w"]
+
+[ext_resource type="Script" path="res://scenes/ui/screen_manager/options_screens/options_screens.gd" id="1_spd7s"]
+[ext_resource type="Script" path="res://scripts/screen_manager/screen_button.gd" id="2_0d0fa"]
+[ext_resource type="Script" path="res://scripts/screen_manager/screen.gd" id="2_2n8tw"]
+[ext_resource type="Script" path="res://scenes/ui/screen_manager/options_screens/options_screen.gd" id="2_hnccm"]
+[ext_resource type="LabelSettings" uid="uid://bxf3vhjnvtp7l" path="res://resources/themes/label_settings/options_labels.tres" id="3_bx5ma"]
+
+[node name="OptionsScreens" type="Control" node_paths=PackedStringArray("screens")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_spd7s")
+screens = [NodePath("OptionsScreen"), NodePath("ControlsScreen")]
+button_groups = Array[String](["options_buttons", "controls_buttons"])
+
+[node name="OptionsScreen" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_hnccm")
+
+[node name="MarginContainer" type="MarginContainer" parent="OptionsScreen"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_bottom = 8
+
+[node name="ScreenVSplit" type="VBoxContainer" parent="OptionsScreen/MarginContainer"]
+layout_mode = 2
+
+[node name="Video" type="Control" parent="OptionsScreen/MarginContainer/ScreenVSplit"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="OptionsScreen/MarginContainer/ScreenVSplit/Video"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VideoLabel" type="RichTextLabel" parent="OptionsScreen/MarginContainer/ScreenVSplit/Video/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 78
+bbcode_enabled = true
+text = "[center][shake rate=9.0 level=9 connected=1][color=orangered]Video[/color][/shake] "
+fit_content = true
+
+[node name="ButtonsHBox" type="HBoxContainer" parent="OptionsScreen/MarginContainer/ScreenVSplit/Video/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+alignment = 1
+
+[node name="LabelsVBox" type="VBoxContainer" parent="OptionsScreen/MarginContainer/ScreenVSplit/Video/VBoxContainer/ButtonsHBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="FullscreenLabel" type="Label" parent="OptionsScreen/MarginContainer/ScreenVSplit/Video/VBoxContainer/ButtonsHBox/LabelsVBox"]
+layout_mode = 2
+text = "Fullscreen"
+label_settings = ExtResource("3_bx5ma")
+
+[node name="Spacer" type="Control" parent="OptionsScreen/MarginContainer/ScreenVSplit/Video/VBoxContainer/ButtonsHBox"]
+custom_minimum_size = Vector2(32, 0)
+layout_mode = 2
+
+[node name="ButtonsVBox" type="VBoxContainer" parent="OptionsScreen/MarginContainer/ScreenVSplit/Video/VBoxContainer/ButtonsHBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="FullscreenCheckbox" type="CheckBox" parent="OptionsScreen/MarginContainer/ScreenVSplit/Video/VBoxContainer/ButtonsHBox/ButtonsVBox"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Audio" type="Control" parent="OptionsScreen/MarginContainer/ScreenVSplit"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="OptionsScreen/MarginContainer/ScreenVSplit/Audio"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AudioLabel" type="RichTextLabel" parent="OptionsScreen/MarginContainer/ScreenVSplit/Audio/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 78
+bbcode_enabled = true
+text = "[center][shake rate=9.0 level=9 connected=1][color=orangered]Audio[/color][/shake] "
+fit_content = true
+
+[node name="ButtonsHBox" type="HBoxContainer" parent="OptionsScreen/MarginContainer/ScreenVSplit/Audio/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+alignment = 1
+
+[node name="LabelsVBox" type="VBoxContainer" parent="OptionsScreen/MarginContainer/ScreenVSplit/Audio/VBoxContainer/ButtonsHBox"]
+layout_mode = 2
+size_flags_horizontal = 4
+alignment = 1
+
+[node name="MasterLabel" type="Label" parent="OptionsScreen/MarginContainer/ScreenVSplit/Audio/VBoxContainer/ButtonsHBox/LabelsVBox"]
+layout_mode = 2
+text = "Master"
+label_settings = ExtResource("3_bx5ma")
+
+[node name="MusicLabel" type="Label" parent="OptionsScreen/MarginContainer/ScreenVSplit/Audio/VBoxContainer/ButtonsHBox/LabelsVBox"]
+layout_mode = 2
+text = "Music"
+label_settings = ExtResource("3_bx5ma")
+
+[node name="SFXLabel" type="Label" parent="OptionsScreen/MarginContainer/ScreenVSplit/Audio/VBoxContainer/ButtonsHBox/LabelsVBox"]
+layout_mode = 2
+text = "SFX"
+label_settings = ExtResource("3_bx5ma")
+
+[node name="Spacer" type="Control" parent="OptionsScreen/MarginContainer/ScreenVSplit/Audio/VBoxContainer/ButtonsHBox"]
+custom_minimum_size = Vector2(32, 0)
+layout_mode = 2
+
+[node name="ButtonsVBox" type="VBoxContainer" parent="OptionsScreen/MarginContainer/ScreenVSplit/Audio/VBoxContainer/ButtonsHBox"]
+layout_mode = 2
+size_flags_horizontal = 4
+alignment = 1
+
+[node name="MasterHSlider" type="HSlider" parent="OptionsScreen/MarginContainer/ScreenVSplit/Audio/VBoxContainer/ButtonsHBox/ButtonsVBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 48)
+layout_mode = 2
+max_value = 1.0
+step = 0.05
+value = 0.5
+
+[node name="MusicHSlider" type="HSlider" parent="OptionsScreen/MarginContainer/ScreenVSplit/Audio/VBoxContainer/ButtonsHBox/ButtonsVBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 48)
+layout_mode = 2
+max_value = 1.0
+step = 0.05
+value = 0.5
+
+[node name="SFXHSlider" type="HSlider" parent="OptionsScreen/MarginContainer/ScreenVSplit/Audio/VBoxContainer/ButtonsHBox/ButtonsVBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 48)
+layout_mode = 2
+focus_neighbor_bottom = NodePath("../../../../../Nav/ButtonsHBox/OptionsBack")
+max_value = 1.0
+step = 0.05
+value = 0.5
+
+[node name="Nav" type="Control" parent="OptionsScreen/MarginContainer/ScreenVSplit"]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+size_flags_vertical = 10
+
+[node name="ButtonsHBox" type="HBoxContainer" parent="OptionsScreen/MarginContainer/ScreenVSplit/Nav"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -112.0
+offset_top = -59.0
+offset_right = 112.0
+offset_bottom = 59.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="OptionsBack" type="Button" parent="OptionsScreen/MarginContainer/ScreenVSplit/Nav/ButtonsHBox"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Back"
+script = ExtResource("2_0d0fa")
+group = "options_buttons"
+button_type = 4
+
+[node name="OptionsControls" type="Button" parent="OptionsScreen/MarginContainer/ScreenVSplit/Nav/ButtonsHBox"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Controls"
+script = ExtResource("2_0d0fa")
+group = "options_buttons"
+button_type = 1
+
+[node name="ControlsScreen" type="Control" parent="." node_paths=PackedStringArray("focus_button")]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_2n8tw")
+focus_button = NodePath("Nav/ButtonsHBox/ControlsBack")
+
+[node name="Nav" type="Control" parent="ControlsScreen"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+
+[node name="ButtonsHBox" type="HBoxContainer" parent="ControlsScreen/Nav"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -112.0
+offset_top = -118.0
+offset_right = 112.0
+grow_horizontal = 2
+grow_vertical = 0
+alignment = 1
+
+[node name="ControlsBack" type="Button" parent="ControlsScreen/Nav/ButtonsHBox"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Back"
+script = ExtResource("2_0d0fa")
+group = "controls_buttons"
+button_type = 4

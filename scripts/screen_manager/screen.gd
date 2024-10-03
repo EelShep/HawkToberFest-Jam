@@ -10,11 +10,11 @@ signal exit_screen(self_ref: Screen, exit_all: bool)
 
 func _input(event: InputEvent) -> void:
 	#TODO if GameData.is_gamepad: GameData.get_gamepad_type(event.device)
-	if event.is_action_pressed("ui_cancel"):
+	if event.is_action_pressed("ui_text_backspace"):
 		set_process_input(false)
 		exit_screen.emit(self)
 		AudioController.play_ui_sfx(AudioConst.UI_SFX_NEGATIVE)
-	elif event.is_action_pressed(GameConst.INPUT_START):
+	elif event.is_action_pressed("ui_cancel"):
 		set_process_input(false)
 		exit_screen.emit(self, true)
 		AudioController.play_ui_sfx(3)

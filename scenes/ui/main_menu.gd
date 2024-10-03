@@ -15,6 +15,7 @@ func _ready() -> void:
 	main_menu_screens.start_game.connect(_on_play_pressed)
 	main_menu_screens.reset_game.connect(_on_reset_pressed)
 	main_menu_screens.quit_game.connect(_on_quit_pressed)
+	main_menu_screens.on_enter()
 
 
 func _on_play_pressed() -> void:

@@ -63,7 +63,15 @@ grow_vertical = 2
 
 [node name="PauseResume" type="Button" parent="MarginContainer/VBoxContainer/Bottom/ButtonsContainer"]
 layout_mode = 2
-text = "Start"
+text = "Resume"
+script = ExtResource("2_lu4qc")
+group = "pause_buttons"
+button_type = 1
+
+[node name="PauseOptions" type="Button" parent="MarginContainer/VBoxContainer/Bottom/ButtonsContainer"]
+layout_mode = 2
+text = "Options
+"
 script = ExtResource("2_lu4qc")
 group = "pause_buttons"
 button_type = 1

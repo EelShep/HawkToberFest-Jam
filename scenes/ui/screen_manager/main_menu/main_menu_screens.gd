@@ -1,6 +1,7 @@
 class_name MainMenuScreens extends ScreensManager
 
 const MENU_SCREEN: int = 0
+const OPTIONS_SCREENS: int = 0
 
 signal start_game()
 signal reset_game()
@@ -22,6 +23,9 @@ func _on_button_pressed(button: ScreenButton) -> void:
 		"MainMenuStart":
 			change_screen(null)
 			start_game.emit()
+		"MainMenuOptions":
+			change_screen(null)
+			screen_managers[OPTIONS_SCREENS].on_enter()
 		"MainMenuReset":
 			reset_game.emit()
 		"MainMenuQuit":
